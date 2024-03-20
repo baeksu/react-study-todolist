@@ -14,7 +14,7 @@ function App() {
     };
 
     const handleClick = (e) => {
-        console.log("clicked");
+        // console.log("clicked");
     };
 
     return (
