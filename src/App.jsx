@@ -13,8 +13,9 @@ function App() {
         setInputText(value);
     };
 
+    //onclick 도 기본 html 에 있는 속성임
     const handleClick = (e) => {
-        // console.log("clicked");
+        console.log("clicked");
     };
 
     return (
