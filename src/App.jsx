@@ -14,9 +14,7 @@ function App() {
     };
 
     //onclick 도 기본 html 에 있는 속성임
-    const handleClick = (e) => {
-        console.log("clicked");
-    };
+    const handleClick = (e) => {};
 
     return (
         <div>
