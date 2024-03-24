@@ -1,6 +1,19 @@
 import { useState } from "react";
 
+function fetchTodos() {
+    const todos = [];
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+        todos.push(value);
+    }
+    return todos;
+}
+
 function App() {
+    //local storage 에 가지고 있는 데이터를 가져온다.
+    const todos = fetchTodos();
+
     // useState() 를 통해서 inputText 의 상태를 모니터링 하면서 변화를 감지해서 값을 변경해준다.
     //이 때 setInputText 함수를 통해서 inputText 의 값을 갱신할 수 있다.
     const [inputText, setInputText] = useState("");
@@ -14,7 +27,9 @@ function App() {
     };
 
     //onclick 도 기본 html 에 있는 속성임
-    const handleClick = (e) => {};
+    const handleClick = (e) => {
+        localStorage.setItem(inputText, inputText);
+    };
 
     return (
         <div>
@@ -22,6 +37,13 @@ function App() {
             <div>
                 <input type="text" value={inputText} onChange={handleInput} />
                 <button onClick={handleClick}>add</button>
+            </div>
+            <div>
+                <ul>
+                    <li>할일 추가</li>
+                    <li>할일 조회</li>
+                    <li>할일 삭제</li>
+                </ul>
             </div>
         </div>
     );
