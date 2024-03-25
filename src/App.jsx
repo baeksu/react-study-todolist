@@ -29,6 +29,11 @@ function App() {
     //onclick 도 기본 html 에 있는 속성임
     const handleClick = (e) => {
         localStorage.setItem(inputText, inputText);
+        setInputText(""); // add 버튼을 클릭하고 나면 input 의 value 를 초기화 시켜준다.
+    };
+
+    const handleRemove = () => {
+        console.log("handleRemove Event!!");
     };
 
     return (
@@ -40,9 +45,17 @@ function App() {
             </div>
             <div>
                 <ul>
-                    <li>할일 추가</li>
-                    <li>할일 조회</li>
-                    <li>할일 삭제</li>
+                    {todos.map((todo, index) => {
+                        //react 에서는 요런식으로 li 아이템들을 부여준다 고 한다.
+                        //react 에서 이벤트처리 함수에 파라미터를 넘기고 싶을 때, 익명함수를 사용하면, 즉시 실행이 안되고, 이벤트 발생할 때만 생기네
+
+                        return (
+                            <li key={index}>
+                                <span>{todo}</span>
+                                <button onClick={() => handleRemove(todo, index)}>remove</button>
+                            </li>
+                        );
+                    })}
                 </ul>
             </div>
         </div>
