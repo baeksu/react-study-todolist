@@ -32,8 +32,9 @@ function App() {
         setInputText(""); // add 버튼을 클릭하고 나면 input 의 value 를 초기화 시켜준다.
     };
 
-    const handleRemove = () => {
-        console.log("handleRemove Event!!");
+    const handleRemove = (todo, index) => {
+        todos.splice(index, 1);
+        console.log(todos);
     };
 
     return (
