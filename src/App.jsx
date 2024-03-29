@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import TodoHeader from "./components/TodoHeader";
 
 function fetchTodos() {
     const todos = [];
@@ -59,7 +60,7 @@ function App() {
 
     return (
         <div>
-            <h1>TODO 앱</h1>
+            <TodoHeader></TodoHeader>
             <div>
                 <input type="text" value={inputText} onChange={handleInput} />
                 <button onClick={handleClick}>add</button>
