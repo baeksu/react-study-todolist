@@ -7,10 +7,15 @@ function TodoInput({ onTodoAdd }) {
         setInputText(value);
     };
 
+    const handleClick = () => {
+        onTodoAdd(inputText);
+        setInputText("");
+    };
+
     return (
         <div>
             <input type="text" value={inputText} onChange={handleInput} />
-            <button onClick={() => onTodoAdd(inputText)}>add</button>
+            <button onClick={handleClick}>add</button>
         </div>
     );
 }
