@@ -26,7 +26,7 @@ function App() {
         // setInputText(""); // add 버튼을 클릭하고 나면 input 의 value 를 초기화 시켜준다.
     };
 
-    const handleRemove = (todo) => {
+    const removeTodo = (todo) => {
         const result = todos.filter((item) => {
             return item !== todo ? true : false;
         });
@@ -39,7 +39,7 @@ function App() {
         <div>
             <TodoHeader></TodoHeader>
             <TodoInput onTodoAdd={addTodo}></TodoInput>
-            <TodoList todos={todos} onTodoRemove={handleRemove}></TodoList>
+            <TodoList todos={todos} onTodoRemove={removeTodo}></TodoList>
         </div>
     );
 }
